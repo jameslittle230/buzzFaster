@@ -1,7 +1,10 @@
+NProgress.configure({ showSpinner: false });
 NProgress.start();
 
 $(document).ready(function() {
     // Find all links in h2 tags
+    var numberOfLinks = $("h2 > a").length;
+    // var numAnalyzedSoFar = 0;
     $("h2 > a").each(function(i) {
 
         // Set it to a variable
@@ -14,13 +17,16 @@ $(document).ready(function() {
         var classification = classify(title);
         if(classification === "listicle") {
             var url = $(this).attr("href");
-            $.get(url, function(data) {
+            $.get(url).done(function(data) {
                 analyzeListicle(title, data, titleLink);
+                NProgress.set(i / numberOfLinks);
+                console.log(i / numberOfLinks);
             });
+        } else {
+            NProgress.set(i / numberOfLinks);
+            console.log(i / numberOfLinks);
         }
     });
-
-    NProgress.done(true);
 });
 
 

@@ -54,12 +54,13 @@ function analyzeListicle(title, data, domElement) {
         if (lastChar === ':') {
             var contentNode = $(this).next("div");
             var image = contentNode.find("img.bf_dom")[0];
-            var content = "";
+            var content = "<div class=\"hack-embedded-img\">";
+            content += "<div class=\"hack-embedded-img-title\">" + listItem + "</div>";
             if(image) {
                 var url = $(image).attr("rel:bf_image_src");
-                content = "<div class=\"hack-embedded-img\"><img src=\""+url+"\"></img></div>";
+                content += "<img src=\""+url+"\"></img></div>";
             } else {
-                content = "<div class=\"hack-embedded-img\">"+contentNode.html()+"</div>";
+                content += contentNode.html()+"</div>";
             }
             //console.log(imgNode.html());
 

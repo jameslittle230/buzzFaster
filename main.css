@@ -28,7 +28,14 @@
     top: 0;
     right: 0;
     background: white;
-    max-height: 350px;
+    max-width: 50%;
+    box-shadow: hsla(0, 0%, 0%, 0.8) 0 0 12px;
+    border: 1px solid black;
+}
+
+.hack-embedded-img-title {
+    max-width: auto;
+    padding: 5px;
 }
 
 .hack-embedded-img img {

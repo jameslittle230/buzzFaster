@@ -34,3 +34,4 @@ This Amazing New Twitter Account Makes Parody Ads That Are Actually Honest
 
 - Remove promoted links
 - For image posts, if you hover over the list item title, show the image
+- One of those hip loading bars

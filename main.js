@@ -1,18 +1,19 @@
 $("h2 > a").each(function(i) {
-    console.group()
     var title = $(this).html();
-    console.log($.trim(title));
-
     var url = $(this).attr("href");
     $.get(url, function(data) {
-        james(data);
+        james(title, data);
     });
-    console.groupEnd();
 });
 
-function james(data) {
+function james(title, data) {
+    console.group();
+    console.log(title)
     var nextDom = $.parseHTML($.trim(data));
-    console.log(nextDom);
+
+    var newDom = jQuery(nextDom);
+    console.log($('h2', newDom).html());
+    console.groupEnd();
 }
 
 function classify(headline) {

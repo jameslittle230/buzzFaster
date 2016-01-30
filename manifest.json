@@ -6,13 +6,10 @@
     "version": "1.0",
 
     "content_scripts": [{
-        "matches": ["*://*.buzzfeed.com/*"],
+        "matches": ["*://*.buzzfeed.com/*", "*://www.facebook.com/*"],
         "css": ["main.css", "nprogress.css"],
         "js": ["jquery.js", "nprogress.js", "main.js"]
     }],
-    "permissions": [
-        "tabs", "http://www.google.com/*"
-    ],
     "web_accessible_resources": [
         "camera.svg"
     ]

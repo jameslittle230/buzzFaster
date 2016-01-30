@@ -1,10 +1,14 @@
 $(document).ready(function() {
+    go();
+});
+
+function go() {
     if (/^htt.+facebook.com\/.*$/.test(document.URL)) {
         facebook();
     } else {
         buzzfeed();
     }
-});
+}
 
 function facebook() {
     console.log("Facebook detected");
@@ -111,3 +115,13 @@ function analyzeListicle(title, data, domElement, hackOverlay) {
         $(hackOverlay).append('</div>');
     });
 }
+
+var lastUpdate = 0;
+
+$(window).scroll(function(){
+    var dist = $(window).scrollTop();
+    if (dist - lastUpdate > 1000) {
+        lastUpdate = dist;
+        go();
+    };
+}).trigger('scroll');

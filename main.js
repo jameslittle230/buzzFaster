@@ -20,11 +20,11 @@ $(document).ready(function() {
             $.get(url).done(function(data) {
                 analyzeListicle(title, data, titleLink);
                 NProgress.set(i / numberOfLinks);
-                console.log(i / numberOfLinks);
+                console.log(i + " :: " + numberOfLinks);
+                if(i >= numberOfLinks - 10) {
+                    NProgress.done();
+                }
             });
-        } else {
-            NProgress.set(i / numberOfLinks);
-            console.log(i / numberOfLinks);
         }
     });
 });

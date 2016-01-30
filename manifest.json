@@ -8,8 +8,8 @@
     "permissions": ["*://*.buzzfeed.com/*", "*://www.facebook.com/*", "http://bzfd.it/*"],
     "content_scripts": [{
         "matches": ["*://*.buzzfeed.com/*", "*://www.facebook.com/*", "http://bzfd.it/*"],
-        "css": ["main.css", "nprogress.css"],
-        "js": ["jquery.js", "nprogress.js", "main.js"]
+        "css": ["main.css"],
+        "js": ["jquery.js", "main.js"]
     }],
     "web_accessible_resources": [
         "camera.svg",

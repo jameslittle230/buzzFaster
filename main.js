@@ -131,6 +131,7 @@ $(window).scroll(function(){
     var dist = $(window).scrollTop();
     if (dist - lastUpdate > 1000) {
         lastUpdate = dist;
+        console.log("scroll");
         go();
     };
 }).trigger('scroll');

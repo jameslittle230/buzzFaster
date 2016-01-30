@@ -9,10 +9,12 @@
     top: 0;
     padding: 10px;
     font-size: 0.9rem;
-    z-index: 1000;
+    z-index: 5000;
     border-radius: 3px;
     font-weight: 400;
     box-sizing: border-box;
+    max-height: 300px;
+    overflow-y: scroll;
 }
 
 .hack-overlay p {

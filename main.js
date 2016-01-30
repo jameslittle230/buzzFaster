@@ -42,12 +42,22 @@ function analyzeListicle(title, data, domElement) {
         // Check if it's an image post
         var lastChar = listItem[listItem.length-1];
         if (lastChar === ':') {
+            var contentNode = $(this).next("div");
+            var image = contentNode.find("img.bf_dom")[0];
+            var content = "";
+            if(image) {
+                var url = $(image).attr("rel:bf_image_src");
+                content = "<div class=\"hack-embedded-img\"><img src=\""+url+"\"></img></div>";
+            } else {
+                content = "<div class=\"hack-embedded-img\">"+contentNode.html()+"</div>";
+            }
+            //console.log(imgNode.html());
+
             // Add a space and the little image icon
             overlayText += "&nbsp;" + icon();
 
             // Find the image associated with the list item
             // and add it to overlayText
-            var content = '<img class="hack-embedded-img" src="http://placehold.it/200x200&text=">';
             overlayText += content;
         }
 

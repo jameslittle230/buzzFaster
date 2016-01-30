@@ -26,6 +26,12 @@
     display: none;
     top: 0;
     right: 0;
+    background: white;
+    max-height: 350px;
+}
+
+.hack-embedded-img img {
+    max-height: 350px;
 }
 
 .hack-list-item:hover .hack-embedded-img {

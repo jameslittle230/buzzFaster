@@ -6,6 +6,7 @@
     border: 1px solid #AFAFAF;
     width: 300px;
     right: 0;
+    top: 0;
     padding: 10px;
     font-size: 0.9rem;
     z-index: 1000;
@@ -33,7 +34,7 @@ div:hover > .hack-overlay {
     top: 0;
     right: 0;
     background: white;
-    max-width: 50%;
+    max-width: 40%;
     box-shadow: hsla(0, 0%, 0%, 0.8) 0 0 12px;
     border: 1px solid black;
 }
@@ -47,8 +48,12 @@ div:hover > .hack-overlay {
     max-height: 350px;
 }
 
+.hack-list-item:hover {
+    color: red;
+}
+
 .hack-list-item:hover .hack-embedded-img {
-    display: block;
+    display: block !important;
 }
 
 .expand-icon {

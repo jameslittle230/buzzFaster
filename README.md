@@ -1,1 +1,5 @@
-# bowdoin-hackathon-2016
+#The Best Bowdoin Hackathon Thing
+
+### By Jack Ward
+
+and only Jack Ward

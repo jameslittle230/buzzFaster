@@ -1,14 +1,17 @@
-$("h2 > a").each(function(i) {
-    var titleLink = this;
-    var title = $(this).html().trim();
-    var classification = classify(title);
-    if(classification === "listicle") {
-        var url = $(this).attr("href");
-        $.get(url, function(data) {
-            james(title, data, titleLink);
-        });
-    }
-});
+$(document).ready(function() {
+    $("h2 > a").each(function(i) {
+        var titleLink = this;
+        var title = $(this).html().trim();
+        var classification = classify(title);
+        if(classification === "listicle") {
+            var url = $(this).attr("href");
+            $.get(url, function(data) {
+                james(title, data, titleLink);
+            });
+        }
+    });
+})
+
 
 function james(title, data, domElement) {
     console.log(domElement);

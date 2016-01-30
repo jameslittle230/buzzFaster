@@ -1,1 +1,1 @@
-alert("sup");
+console.log($);

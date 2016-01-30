@@ -1,11 +1,8 @@
-NProgress.configure({ showSpinner: false });
-NProgress.start();
-
 $(document).ready(function() {
     // Find all links in h2 tags
     var numberOfLinks = $("h2 > a").length;
     // var numAnalyzedSoFar = 0;
-    $("h2 > a").each(function(i) {
+    $("h2 > a").hover(function() {
 
         // Set it to a variable
         var titleLink = this;
@@ -19,11 +16,6 @@ $(document).ready(function() {
             var url = $(this).attr("href");
             $.get(url).done(function(data) {
                 analyzeListicle(title, data, titleLink);
-                NProgress.set(i / numberOfLinks);
-                console.log(i + " :: " + numberOfLinks);
-                if(i >= numberOfLinks - 10) {
-                    NProgress.done();
-                }
             });
         }
     });

@@ -1,4 +1,21 @@
 $(document).ready(function() {
+    if (/^htt.+facebook.com\/.*$/.test(document.URL)) {
+        facebook();
+    } else {
+        buzzfeed();
+    }
+});
+
+function facebook() {
+    console.log("Facebook detected");
+    $("a[href~=\"bzfd.it\"").hover(function() {
+        
+        var titleLink = $(this).prev();
+        console.log(titleLink.html());
+    });
+}
+
+function buzzfeed() {
     // Find all links in h2 tags
     var numberOfLinks = $("h2 > a").length;
     // var numAnalyzedSoFar = 0;
@@ -19,8 +36,7 @@ $(document).ready(function() {
             });
         }
     });
-});
-
+}
 
 function analyzeListicle(title, data, domElement) {
     // JQuery can turn strings into a DOM, so we do that

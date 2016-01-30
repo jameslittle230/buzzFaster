@@ -22,10 +22,10 @@
 }
 
 .hack-embedded-img {
-    position: absolute;
+    position: fixed;
     display: none;
     top: 0;
-    right: -100%;
+    right: 0;
 }
 
 .hack-list-item:hover .hack-embedded-img {

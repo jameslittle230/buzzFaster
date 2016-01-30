@@ -14,3 +14,12 @@ function james(data) {
     var nextDom = $.parseHTML($.trim(data));
     console.log(nextDom);
 }
+
+function classify(headline) {
+    var list = /^\d+ \w+s .*$/;
+    if(list.test(headline)) {
+        console.log(headline);
+        return "listicle";
+    }
+    return "other";
+}

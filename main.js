@@ -36,3 +36,8 @@ function classify(headline) {
 function overlay(el, body) {
     $(el).append("<div class=\"hack-overlay\">"+body+"</div>");
 }
+
+function icon() {
+    var url = chrome.extension.getURL("camera.svg");
+    return "<img class=\"expand-icon\" src=\""+url+"\"></img>"
+}

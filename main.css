@@ -20,3 +20,10 @@
 .lede__link:hover .hack-overlay {
     display: block;
 }
+
+.expand-icon {
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+}

@@ -7,8 +7,8 @@
 
     "content_scripts": [{
         "matches": ["*://*.buzzfeed.com/*"],
-        "css": ["main.css"],
-        "js": ["jquery.js", "main.js"]
+        "css": ["main.css", "nprogress.css"],
+        "js": ["jquery.js", "nprogress.js", "main.js"]
     }],
     "permissions": [
         "tabs", "http://www.google.com/*"

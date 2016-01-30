@@ -1,3 +1,5 @@
+NProgress.start();
+
 $(document).ready(function() {
     // Find all links in h2 tags
     $("h2 > a").each(function(i) {
@@ -17,7 +19,9 @@ $(document).ready(function() {
             });
         }
     });
-})
+
+    NProgress.done(true);
+});
 
 
 function analyzeListicle(title, data, domElement) {

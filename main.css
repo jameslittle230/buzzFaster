@@ -1,0 +1,13 @@
+.hack-overlay {
+    background: #AAA;
+    color: #222;
+    border: 1px solid #222;
+    position: relative;
+    width: 300px;
+    left: 10px;
+    font-size: 0.7rem;
+}
+
+.hack-overlay p {
+    margin: 0;
+}

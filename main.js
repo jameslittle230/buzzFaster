@@ -14,9 +14,6 @@ $(document).ready(function() {
 
 
 function james(title, data, domElement) {
-    console.log(domElement);
-    console.group();
-    console.log(title)
     var nextDom = $.parseHTML($.trim(data));
 
     var newDom = jQuery(nextDom);
@@ -24,24 +21,18 @@ function james(title, data, domElement) {
     $('.subbuzz_name', newDom).each( function() {
         var listItem = $(this).html().trim();
         overlayText += listItem + '<br>';
-        // console.log($(this).attr('class'));
     });
     overlay(domElement, overlayText);
-    console.groupEnd();
 }
 
 function classify(headline) {
     var list = /^(The )?\d+ .*$/;
     if(list.test(headline)) {
-        //console.log(headline + " is a listicle");
         return "listicle";
-    } else {
-        //console.error(headline + " is not a listicle");
     }
     return "other";
 }
 
 function overlay(el, body) {
-    console.log(el, body);
     $(el).append("<div class=\"hack-overlay\">"+body+"</div>");
 }

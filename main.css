@@ -1,14 +1,16 @@
 .hack-overlay {
     display: none;
     position: absolute;
-    background: #AAA;
+    background: #F1F1F1;
     color: #222;
-    border: 1px solid #222;
+    border: 1px solid #AFAFAF;
     width: 300px;
     right: 0px;
     font-size: 1rem;
-    padding: 3px;
+    padding: 10px;
     z-index: 1000;
+    border-radius: 3px;
+    font-weight: 400;
 }
 
 .hack-overlay p {

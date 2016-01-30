@@ -18,9 +18,14 @@ function facebook() {
 
         var classification = classify(title);
         if(classification === "listicle") {
+            if ($(titleLink).find('.hack-overlay').length > 0) {
+                return;
+            }
+
+            $(titleLink).append('<div class="hack-overlay">' + loaderIcon() + '</div>');
+
             var url = $(this).attr("href");
             chrome.runtime.sendMessage({url: $(this).attr("href")}, function(data){
-                $(titleLink).append('<div class="hack-overlay">' + loaderIcon() + '</div>');
                 var hackOverlay = $(titleLink).find('.hack-overlay');
                 analyzeListicle(title, data, titleLink, hackOverlay);
             });
@@ -61,6 +66,10 @@ function hoverArticle(domElement) {
 }
 
 function analyzeArticle(domElement, classification) {
+    if ($(domElement).find('.hack-overlay').length > 0) {
+        return;
+    }
+
     $(domElement).append('<div class="hack-overlay">' + loaderIcon() + '</div>');
     var hackOverlay = $(domElement).find('.hack-overlay');
     var title = $(domElement).html().trim();

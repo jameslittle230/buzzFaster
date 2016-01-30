@@ -7,7 +7,6 @@ $("h2 > a").each(function(i) {
         $.get(url, function(data) {
             james(title, data, titleLink);
         });
-        overlay(this, "Okay guise");
     }
 });
 
@@ -18,11 +17,13 @@ function james(title, data, domElement) {
     var nextDom = $.parseHTML($.trim(data));
 
     var newDom = jQuery(nextDom);
+    var overlayText = '';
     $('.subbuzz_name', newDom).each( function() {
         var listItem = $(this).html().trim();
-        $(domElement).append('<br>' + listItem);
+        overlayText += '<br>' + listItem;
         // console.log($(this).attr('class'));
     });
+    overlay(domElement, overlayText);
     console.groupEnd();
 }
 

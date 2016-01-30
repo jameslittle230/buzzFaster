@@ -1,21 +1,20 @@
 .hack-overlay {
     display: none;
-    background: pink;
+    position: absolute;
+    background: #AAA;
     color: #222;
     border: 1px solid #222;
-    position: relative;
     width: 300px;
-    left: 10px;
-    font-size: 0.7rem;
+    right: 0px;
+    font-size: 1rem;
+    padding: 3px;
+    z-index: 1000;
 }
 
 .hack-overlay p {
     margin: 0;
 }
 
-h2 > a {position: relative}
-
-h2 > a:hover > .hack-overlay {
-    display: absolute;
-    background: green;
+.lede__link:hover .hack-overlay {
+    display: block;
 }

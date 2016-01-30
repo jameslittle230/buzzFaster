@@ -42,8 +42,12 @@
     max-height: 350px;
 }
 
+.hack-list-item:hover {
+    color: red;
+}
+
 .hack-list-item:hover .hack-embedded-img {
-    display: block;
+    display: block !important;
 }
 
 .expand-icon {

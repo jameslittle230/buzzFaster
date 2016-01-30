@@ -11,6 +11,7 @@
         "js": ["jquery.js", "nprogress.js", "main.js"]
     }],
     "web_accessible_resources": [
-        "camera.svg"
+        "camera.svg",
+        "ajax-loader.gif"
     ]
 }

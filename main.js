@@ -9,7 +9,7 @@ $(document).ready(function() {
 function facebook() {
     console.log("Facebook detected");
     $("a[href~=\"bzfd.it\"").hover(function() {
-        
+
         var titleLink = $(this).prev();
         console.log(titleLink.html());
     });
@@ -17,72 +17,9 @@ function facebook() {
 
 function buzzfeed() {
     // Find all links in h2 tags
-    var numberOfLinks = $("h2 > a").length;
-    // var numAnalyzedSoFar = 0;
     $("h2 > a").hover(function() {
-
-        // Set it to a variable
-        var titleLink = this;
-
-        // Find the title
-        var title = $(this).html().trim();
-
-        // And then classify the title
-        var classification = classify(title);
-        if(classification === "listicle") {
-            var url = $(this).attr("href");
-            $.get(url).done(function(data) {
-                analyzeListicle(title, data, titleLink);
-            });
-        }
+        hoverArticle(this);
     });
-}
-
-function analyzeListicle(title, data, domElement) {
-    // JQuery can turn strings into a DOM, so we do that
-    // with the article's HTML
-    var nextDom = $.parseHTML($.trim(data));
-    var newDom = jQuery(nextDom);
-
-    // overlayText is a variable that contains the HTML
-    // content for the entire hover box that appears
-    var overlayText = '';
-
-    // For each list item text in the listicle
-    $('.subbuzz_name', newDom).each( function() {
-
-        // listItem is the inner HTML of the list item
-        var listItem = $(this).html().trim();
-
-        // Add a wrapper div and the list item text to overlayText
-        overlayText += '<div class="hack-list-item">' + listItem;
-
-        // Check if it's an image post
-        var lastChar = listItem[listItem.length-1];
-        if (lastChar === ':') {
-            var contentNode = $(this).next("div");
-            var image = contentNode.find("img.bf_dom")[0];
-            var content = "<div class=\"hack-embedded-img\">";
-            content += "<div class=\"hack-embedded-img-title\">" + listItem + "</div>";
-            if(image) {
-                var url = $(image).attr("rel:bf_image_src");
-                content += "<img src=\""+url+"\"></img></div>";
-            } else {
-                content += contentNode.html()+"</div>";
-            }
-            //console.log(imgNode.html());
-
-            // Add a space and the little image icon
-            overlayText += "&nbsp;" + icon();
-
-            // Find the image associated with the list item
-            // and add it to overlayText
-            overlayText += content;
-        }
-
-        overlayText += '<br></div>';
-    });
-    overlay(domElement, overlayText);
 }
 
 // Determine what kind of article it is, based on headline
@@ -95,11 +32,70 @@ function classify(headline) {
     return "other";
 }
 
-function overlay(el, body) {
-    $(el).append("<div class=\"hack-overlay\">"+body+"</div>");
+function hoverArticle(domElement) {
+    var title = $(domElement).html().trim();
+    var classification = classify(title);
+
+    if(classification !== 'other') {
+        analyzeArticle(domElement, classification)
+    }
 }
 
-function icon() {
+function analyzeArticle(domElement, classification) {
+    $(domElement).append('<div class="hack-overlay">' + loaderIcon() + '</div>');
+    var hackOverlay = $(domElement).find('.hack-overlay');
+    var title = $(domElement).html().trim();
+    var url = $(domElement).attr('href');
+
+    $.get(url).done(function(data) {
+        if (classification === "listicle") {
+            analyzeListicle(title, data, domElement, hackOverlay);
+        }
+    });
+}
+
+function loaderIcon() {
+    var url = chrome.extension.getURL("ajax-loader.gif");
+    return "<img class=\"expand-icon\" src=\""+url+"\"></img>";
+}
+
+function imageIcon() {
     var url = chrome.extension.getURL("camera.svg");
-    return "<img class=\"expand-icon\" src=\""+url+"\"></img>"
+    return "<img class=\"expand-icon\" src=\""+url+"\"></img>";
+}
+
+
+function analyzeListicle(title, data, domElement, hackOverlay) {
+    $(hackOverlay).html('');
+    var newDom = jQuery($.parseHTML($.trim(data)));
+
+    $('.subbuzz_name', newDom).each( function() {
+        $(hackOverlay).append('<div class="hack-list-item">');
+        var listItemElement = $(hackOverlay).find('.hack-list-item:last');
+
+        var listItem = $(this).html().trim();
+
+        $(listItemElement).append(listItem);
+
+        var lastChar = listItem[listItem.length-1];
+        if (lastChar === ':') {
+            console.log("image");
+            var contentNode = $(this).next("div");
+            var image = contentNode.find("img.bf_dom")[0];
+            var content = "<div class=\"hack-embedded-img\">";
+            content += "<div class=\"hack-embedded-img-title\">" + listItem + "</div>";
+
+            if(image) {
+                var url = $(image).attr("rel:bf_image_src");
+                content += "<img src=\""+url+"\"></img></div>";
+            } else {
+                content += contentNode.html()+"</div>";
+            }
+
+            $(listItemElement).append("&nbsp;" + imageIcon());
+            $(listItemElement).append(content);
+        }
+
+        $(hackOverlay).append('</div>');
+    });
 }

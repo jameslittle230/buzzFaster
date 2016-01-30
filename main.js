@@ -20,7 +20,7 @@ function james(title, data) {
 }
 
 function classify(headline) {
-    var list = /^\d+ .*$/;
+    var list = /^(The )?\d+ .*$/;
     if(list.test(headline)) {
         console.log(headline + " is a listicle");
         return "listicle";

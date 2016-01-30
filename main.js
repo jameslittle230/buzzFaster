@@ -79,7 +79,7 @@ function analyzeListicle(title, data, domElement, hackOverlay) {
 
             var contentNode = $(this).next("div");
 
-            if (contentNode) {
+            if (contentNode.html()) {
                 var image = contentNode.find("img.bf_dom")[0];
                 var content = "<div class=\"hack-embedded-img\">";
                 content += "<div class=\"hack-embedded-img-title\">" + listItem + "</div>";

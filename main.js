@@ -20,7 +20,7 @@ function james(title, data, domElement) {
     var overlayText = '';
     $('.subbuzz_name', newDom).each( function() {
         var listItem = $(this).html().trim();
-        overlayText += '<br>' + listItem;
+        overlayText += listItem + '<br>';
         // console.log($(this).attr('class'));
     });
     overlay(domElement, overlayText);

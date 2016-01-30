@@ -77,24 +77,23 @@ function analyzeListicle(title, data, domElement, hackOverlay) {
 
         $(listItemElement).append(listItem);
 
-        var lastChar = listItem[listItem.length-1];
-        if (lastChar === ':') {
-            console.log("image");
             var contentNode = $(this).next("div");
-            var image = contentNode.find("img.bf_dom")[0];
-            var content = "<div class=\"hack-embedded-img\">";
-            content += "<div class=\"hack-embedded-img-title\">" + listItem + "</div>";
 
-            if(image) {
-                var url = $(image).attr("rel:bf_image_src");
-                content += "<img src=\""+url+"\"></img></div>";
-            } else {
-                content += contentNode.html()+"</div>";
+            if (contentNode) {
+                var image = contentNode.find("img.bf_dom")[0];
+                var content = "<div class=\"hack-embedded-img\">";
+                content += "<div class=\"hack-embedded-img-title\">" + listItem + "</div>";
+
+                if(image) {
+                    var url = $(image).attr("rel:bf_image_src");
+                    content += "<img src=\""+url+"\"></img></div>";
+                } else {
+                    content += contentNode.html()+"</div>";
+                }
+
+                $(listItemElement).append("&nbsp;" + imageIcon());
+                $(listItemElement).append(content);
             }
-
-            $(listItemElement).append("&nbsp;" + imageIcon());
-            $(listItemElement).append(content);
-        }
 
         $(hackOverlay).append('</div>');
     });

@@ -20,7 +20,17 @@ function james(title, data, domElement) {
     var overlayText = '';
     $('.subbuzz_name', newDom).each( function() {
         var listItem = $(this).html().trim();
-        overlayText += listItem + '<br>';
+        overlayText += '<div class="hack-list-item">' + listItem;
+
+        // Check if it's an image post
+        var lastChar = listItem[listItem.length-1];
+        if (lastChar === ':') {
+            overlayText += "&nbsp;<b>(pic)</b>";
+            var content = '<img class="hack-embedded-img" src="http://placehold.it/200x200">';
+            overlayText += content;
+        }
+
+        overlayText += '<br></div>';
     });
     overlay(domElement, overlayText);
 }

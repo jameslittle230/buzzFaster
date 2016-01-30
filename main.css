@@ -20,3 +20,14 @@
 .lede__link:hover .hack-overlay {
     display: block;
 }
+
+.hack-embedded-img {
+    position: absolute;
+    display: none;
+    top: 0;
+    right: -100%;
+}
+
+.hack-list-item:hover .hack-embedded-img {
+    display: block;
+}

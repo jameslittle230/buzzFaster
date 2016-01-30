@@ -45,7 +45,7 @@ div:hover > .hack-overlay {
 }
 
 .hack-embedded-img img {
-    max-height: 350px;
+    max-width: 100%;
 }
 
 .hack-list-item:hover {

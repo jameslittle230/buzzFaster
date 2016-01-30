@@ -33,17 +33,23 @@ function buzzfeed() {
 
 // Determine what kind of article it is, based on headline
 // text analysis
-function classify(headline) {
+function classify(title, domElement) {
     var list = /^(The )?\d+ .*$/;
-    if(list.test(headline)) {
+    if(list.test(title)) {
         return "listicle";
     }
-    return "other";
+
+    // console.log($(domElement).parent().parent().parent().siblings().get()[0]);
+    var grandparentSibling = $(domElement).parent().parent().parent().siblings().get()[0];
+    if ($(grandparentSibling).is("a[href='/quiz']")) {
+        console.log("Quiz article!");
+    }
+    return "listicle";
 }
 
 function hoverArticle(domElement) {
     var title = $(domElement).html().trim();
-    var classification = classify(title);
+    var classification = classify(title, domElement);
 
     if(classification !== 'other') {
         analyzeArticle(domElement, classification)

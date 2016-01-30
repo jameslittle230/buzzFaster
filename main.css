@@ -15,6 +15,6 @@
     margin: 0;
 }
 
-.lede__title:hover .hack-overlay {
+.lede__link:hover .hack-overlay {
     display: block;
 }

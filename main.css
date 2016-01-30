@@ -42,6 +42,7 @@ div:hover > .hack-overlay {
 }
 
 .hack-embedded-img-title {
+    color: #222;
     max-width: auto;
     padding: 5px;
 }

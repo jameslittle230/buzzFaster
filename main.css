@@ -5,12 +5,13 @@
     color: #222;
     border: 1px solid #AFAFAF;
     width: 300px;
-    right: 0px;
+    right: 0;
     padding: 10px;
     font-size: 0.9rem;
     z-index: 1000;
     border-radius: 3px;
     font-weight: 400;
+    box-sizing: border-box;
 }
 
 .hack-overlay p {

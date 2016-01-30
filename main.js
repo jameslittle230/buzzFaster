@@ -25,7 +25,7 @@ function james(title, data, domElement) {
         // Check if it's an image post
         var lastChar = listItem[listItem.length-1];
         if (lastChar === ':') {
-            overlayText += "&nbsp;<b>(pic)</b>";
+            overlayText += "&nbsp;" + icon();
             var content = '<img class="hack-embedded-img" src="http://placehold.it/200x200">';
             overlayText += content;
         }
@@ -45,4 +45,9 @@ function classify(headline) {
 
 function overlay(el, body) {
     $(el).append("<div class=\"hack-overlay\">"+body+"</div>");
+}
+
+function icon() {
+    var url = chrome.extension.getURL("camera.svg");
+    return "<img class=\"expand-icon\" src=\""+url+"\"></img>"
 }

@@ -12,5 +12,8 @@
     }],
     "permissions": [
         "tabs", "http://www.google.com/*"
+    ],
+    "web_accessible_resources": [
+        "camera.svg"
     ]
 }

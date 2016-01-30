@@ -31,3 +31,10 @@
 .hack-list-item:hover .hack-embedded-img {
     display: block;
 }
+
+.expand-icon {
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+}

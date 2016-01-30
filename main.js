@@ -29,10 +29,10 @@ function james(title, data, domElement) {
 function classify(headline) {
     var list = /^(The )?\d+ .*$/;
     if(list.test(headline)) {
-        console.log(headline + " is a listicle");
+        //console.log(headline + " is a listicle");
         return "listicle";
     } else {
-        console.error(headline + " is not a listicle");
+        //console.error(headline + " is not a listicle");
     }
     return "other";
 }

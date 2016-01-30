@@ -1,5 +1,6 @@
 .hack-overlay {
-    background: #AAA;
+    display: none;
+    background: pink;
     color: #222;
     border: 1px solid #222;
     position: relative;
@@ -10,4 +11,11 @@
 
 .hack-overlay p {
     margin: 0;
+}
+
+h2 > a {position: relative}
+
+h2 > a:hover > .hack-overlay {
+    display: absolute;
+    background: green;
 }

@@ -6,6 +6,7 @@ $("h2 > a").each(function(i) {
         $.get(url, function(data) {
             james(title, data);
         });
+        overlay(this, "Okay guise");
     }
 });
 
@@ -28,4 +29,9 @@ function classify(headline) {
         console.error(headline + " is not a listicle");
     }
     return "other";
+}
+
+function overlay(el, body) {
+    console.log(el, body);
+    $(el).append("<div class=\"hack-overlay\">"+body+"</div>");
 }

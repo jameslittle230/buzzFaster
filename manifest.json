@@ -5,12 +5,17 @@
     "description": "",
     "version": "1.1",
 
+    "permissions": ["*://*.buzzfeed.com/*", "*://www.facebook.com/*", "http://bzfd.it/*"],
     "content_scripts": [{
-        "matches": ["*://*.buzzfeed.com/*", "*://www.facebook.com/*"],
+        "matches": ["*://*.buzzfeed.com/*", "*://www.facebook.com/*", "http://bzfd.it/*"],
         "css": ["main.css", "nprogress.css"],
         "js": ["jquery.js", "nprogress.js", "main.js"]
     }],
     "web_accessible_resources": [
         "camera.svg"
-    ]
+    ],
+    "background": {
+        "scripts": ["background.js", "jquery.js"],
+        "persistent": true
+    }
 }

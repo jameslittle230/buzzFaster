@@ -18,8 +18,13 @@
     margin: 0;
 }
 
-.lede__link:hover .hack-overlay {
+.lede__link:hover .hack-overlay,
+div:hover > .hack-overlay {
     display: block;
+}
+
+#facebook .hack-overlay {
+    bottom: 100px;
 }
 
 .hack-embedded-img {

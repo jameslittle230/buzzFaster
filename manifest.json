@@ -1,16 +1,16 @@
 {
-  "manifest_version": 2,
+    "manifest_version": 2,
 
-  "name": "Bowdoin Hackathon Extension",
-  "description": "",
-  "version": "1.0",
+    "name": "Bowdoin Hackathon Extension",
+    "description": "",
+    "version": "1.0",
 
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
-  },
-  "permissions": [
-    "activeTab",
-    "https://ajax.googleapis.com/"
-  ]
+    "content_scripts": [{
+        "matches": ["*://*.buzzfeed.com/*"],
+        "css": ["main.css"],
+        "js": ["main.js"]
+    }],
+    "permissions": [
+        "tabs", "http://www.google.com/*"
+    ]
 }

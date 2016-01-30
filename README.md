@@ -29,3 +29,8 @@ OMG, David Bowie Could've Been In "The Lord Of The Rings"
 Stunning Portraits Of SF That'll Make You Want To Call It Frisco
 This Amazing New Twitter Account Makes Parody Ads That Are Actually Honest
 ```
+
+## Feature List
+
+- Remove promoted links
+- For image posts, if you hover over the list item title, show the image

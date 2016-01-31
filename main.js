@@ -43,16 +43,18 @@ function buzzfeed() {
 // Determine what kind of article it is, based on headline
 // text analysis
 function classify(title, domElement) {
+    var grandparentSibling = $(domElement).parent().parent().parent().siblings().get()[0];
+    if ($(grandparentSibling).is("a[href='/quiz']")) {
+        return "quiz";
+    }
+
     var list = /^(The )?\d+ .*$/;
     if(list.test(title)) {
         return "listicle";
     }
 
     // console.log($(domElement).parent().parent().parent().siblings().get()[0]);
-    var grandparentSibling = $(domElement).parent().parent().parent().siblings().get()[0];
-    if ($(grandparentSibling).is("a[href='/quiz']")) {
-        console.log("Quiz article!");
-    }
+
     return "listicle";
 }
 
@@ -60,26 +62,41 @@ function hoverArticle(domElement) {
     var title = $(domElement).html().trim();
     var classification = classify(title, domElement);
 
-    if(classification !== 'other') {
+    if(classification == "quiz") {
+        return;
+    }
+
+
+
+    if(classification == 'listicle') {
         analyzeArticle(domElement, classification)
     }
 }
 
 function analyzeArticle(domElement, classification) {
+    console.log("hey");
     if ($(domElement).find('.hack-overlay').length > 0) {
         return;
     }
 
-    $(domElement).append('<div class="hack-overlay">' + loaderIcon() + '</div>');
-    var hackOverlay = $(domElement).find('.hack-overlay');
-    var title = $(domElement).html().trim();
-    var url = $(domElement).attr('href');
+    if(classification === "listicle") {
+        $(domElement).append('<div class="hack-overlay">' + loaderIcon() + '</div>');
+        var hackOverlay = $(domElement).find('.hack-overlay');
+        var title = $(domElement).html().trim();
+        var url = $(domElement).attr('href');
 
-    $.get(url).done(function(data) {
-        if (classification === "listicle") {
-            analyzeListicle(title, data, domElement, hackOverlay);
-        }
-    });
+    // if(classification === "quiz") {
+    //     $(hackOverlay).html('We can\'t spoil quizzes for you!');
+    //     return;
+    // }
+
+        $.get(url).done(function(data) {
+            if (classification === "listicle") {
+                analyzeListicle(title, data, domElement, hackOverlay);
+            }
+        });
+
+    }
 }
 
 function loaderIcon() {
@@ -93,6 +110,7 @@ function imageIcon() {
 }
 
 function analyzeListicle(title, data, domElement, hackOverlay) {
+    console.log("hey");
     $(hackOverlay).html('');
     var newDom = jQuery($.parseHTML($.trim(data)));
 

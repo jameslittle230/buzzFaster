@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
 
-    "name": "Bowdoin Hackathon Extension",
-    "description": "",
+    "name": "BuzzFaster",
+    "description": "BuzzFeed at the speed of trite.",
     "version": "1.2",
 
     "permissions": ["*://*.buzzfeed.com/*", "*://www.facebook.com/*", "http://bzfd.it/*"],

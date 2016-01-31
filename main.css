@@ -37,7 +37,7 @@ img {
 }
 
 h1 {
-    color: #FF4136;
+    color: red;
     text-shadow: 1px 1px white, 2px 2px white, 3px 3px white, 4px 4px white, 5px 5px white, 6px 6px white, 7px 7px white, 8px 8px white, 9px 9px white, 10px 10px white;
     font-size: 6rem;
 }
@@ -47,16 +47,33 @@ p {
     margin-bottom: 5em;
     text-shadow: 1px 1px white;
     max-width: 30em;
-    display: inline0-block;
+    font-size: 2rem;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
 }
 
+.download-link {
+    margin-bottom: 2rem;
+}
+
 .download-link > a {
+    display: block;
+    background: red;
+    width: 30em;
+    position: relative;
+    margin: 0 auto;
+    padding: 1em;
     text-decoration: none;
     color: white;
     font-size: 1.2em;
-    text-shadow: 1px 1px red, 2px 2px red, 3px 3px red;
+    box-shadow: 1px 1px white, 2px 2px white, 3px 3px white, 4px 4px white, 5px 5px white, 6px 6px white, 7px 7px white, 8px 8px white, 9px 9px white, 10px 10px white;
+}
+
+.download-link > a:hover {
+    box-shadow: 1px 1px white, 2px 2px white, 3px 3px white, 4px 4px white, 5px 5px white, 6px 6px white, 7px 7px white, 8px 8px white, 9px 9px white, 10px 10px white, 11px 11px white, 12px 12px white, 13px 13px white, 14px 14px white, 15px 15px white, 16px 16px white;
+    top: -2px;
+    left: -2px;
 }
 
 .info > a {

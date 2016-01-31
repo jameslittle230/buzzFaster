@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url('img/squared_metal.png');
+    background: #ADD8E6;
     font-family: Montserrat, sans-serif;
     text-align: center;
     font-size: 22px;
@@ -15,7 +15,7 @@ body {
 .img {
     max-width: 80%;
     margin: 0 auto;
-    box-shadow: 0 0 12px #000;
+    box-shadow: 1px 1px red, 2px 2px red, 3px 3px red, 4px 4px red, 5px 5px red, 6px 6px red, 7px 7px red;
     background: white;
 }
 
@@ -38,11 +38,27 @@ img {
 
 h1 {
     color: #FF4136;
-    text-shadow: 0 0 12px #FFF;
+    text-shadow: 1px 1px white, 2px 2px white, 3px 3px white, 4px 4px white, 5px 5px white, 6px 6px white, 7px 7px white, 8px 8px white, 9px 9px white, 10px 10px white;
     font-size: 6rem;
 }
 
 p {
     clear: both;
     margin-bottom: 5em;
+    text-shadow: 1px 1px white;
+    max-width: 30em;
+    display: inline0-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.download-link > a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    text-shadow: 1px 1px red, 2px 2px red, 3px 3px red;
+}
+
+.info > a {
+    color: inherit;
 }

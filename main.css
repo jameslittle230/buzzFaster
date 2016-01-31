@@ -1,0 +1,28 @@
+body {
+    background: url('img/squared_metal.png');
+    font-family: Montserrat, sans-serif;
+    text-align: center;
+}
+
+.img {
+    max-width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 0 12px #000;
+}
+
+.half-images img {
+    width: 50%;
+    float: left;
+    border: 1px solid black;
+}
+
+img {
+    max-width: 100%;
+    max-height: auto;
+}
+
+h1 {
+    color: #FF4136;
+    text-shadow: 0 0 12px #FFF;
+    font-size: 6rem;
+}
